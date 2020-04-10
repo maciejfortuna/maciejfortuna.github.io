@@ -1,0 +1,231 @@
+@-webkit-keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateY(-80%);
+            transform: translateY(-80%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateY(-80%);
+            transform: translateY(-80%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+body {
+  background-color: #f7f7f7;
+  width: 100%;
+  font-family: "Montserrat";
+  -webkit-box-shadow: inset 0 0 5em 0em #646464;
+          box-shadow: inset 0 0 5em 0em #646464;
+  margin: 0 auto;
+}
+
+#container {
+  width: 950px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: "Montserrat";
+  font-weight: 500;
+  color: #333333;
+  letter-spacing: 6px;
+  padding-top: 50px;
+  margin: 0;
+  text-align: center;
+  -webkit-animation: 1.5s ease-out 0s 1 slideInFromTop;
+          animation: 1.5s ease-out 0s 1 slideInFromTop;
+}
+
+#sub_title {
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 17px;
+  margin: 10px 0 0 0;
+  color: #333333;
+  text-align: center;
+  -webkit-animation: 1.5s ease-out 0s 1 slideInFromTop;
+          animation: 1.5s ease-out 0s 1 slideInFromTop;
+}
+
+#github:hover img {
+  width: 46px;
+  opacity: 1;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#github img {
+  opacity: 0.7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 40px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+hr {
+  border: 0 gainsboro solid;
+  border-top-width: 2px;
+  clear: both;
+  height: 0;
+}
+
+.chapter {
+  text-align: left;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  color: #333333;
+}
+
+.project_container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Lato", sans-serif;
+  background-color: rgba(0, 0, 0, 0.03);
+  margin-bottom: 4px;
+  height: auto;
+  text-align: left;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  border-radius: 2px;
+}
+
+#starred {
+  background-color: inital;
+  border: 2px dashed #333333;
+}
+
+.project_container:hover .title {
+  color: orange;
+}
+
+.project_container:hover .img img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.thumbnail {
+  width: auto;
+  height: 100%;
+  float: left;
+  clear: both;
+  padding-right: 5px;
+  margin-right: 10px;
+  border-right: 1px solid rgba(0, 0, 0, 0.432);
+}
+
+.thumbnail:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.img {
+  width: 400px;
+  height: 100%;
+  float: left;
+  clear: both;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.text {
+  width: 100%;
+}
+
+.title {
+  font-family: "Montserrat";
+  color: #333333;
+  font-weight: 600;
+  font-size: 25px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.title, .description, .category {
+  padding: 0;
+  margin: 5px 5px;
+}
+
+.link {
+  background-color: #333333;
+  color: #f7f7f7;
+  padding: 3px;
+  font-weight: 600;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.link:hover {
+  cursor: pointer;
+  background-color: initial;
+  color: #333333;
+  border: 1px solid #333333;
+}
+
+.category {
+  font-weight: 400;
+  font-size: 16px;
+  color: orange;
+}
+
+.description {
+  font-weight: 600;
+  font-size: 15px;
+  color: #333333;
+}
+
+.date {
+  font-weight: 400px;
+  float: right;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+footer {
+  text-align: center;
+  padding: 50px;
+}
+
+@media only screen and (max-width: 950px) {
+  #container {
+    width: 100%;
+  }
+  body {
+    -webkit-box-shadow: initial;
+            box-shadow: initial;
+    padding: 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .img {
+    width: 250px;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+  }
+}
+/*# sourceMappingURL=style.css.map */
