@@ -108,7 +108,7 @@ hr {
 }
 
 .project_container:hover .title {
-  color: orange;
+  color: #1683cc;
 }
 
 .project_container:hover .img img {
@@ -182,7 +182,7 @@ hr {
 .category {
   font-weight: 400;
   font-size: 16px;
-  color: orange;
+  color: #1683cc;
 }
 
 .description {
@@ -218,10 +218,30 @@ footer {
 }
 
 @media only screen and (max-width: 750px) {
+  .thumbnail {
+    padding: initial;
+    margin: initial;
+    border: initial;
+    width: 100%;
+  }
+  .project_container {
+    padding: 10px;
+  }
   .img {
-    width: 250px;
+    width: 100%;
     height: 100%;
-    float: left;
+    text-align: center;
+  }
+  .img img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .text {
+    width: 100%;
+  }
+  hr {
+    border-width: 1px;
   }
 }
 /*# sourceMappingURL=style.css.map */
