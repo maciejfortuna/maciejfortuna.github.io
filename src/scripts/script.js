@@ -24,7 +24,7 @@ function switch_color()
     {
         proj_container[i].classList.toggle('project_container_dark');
         categories[i].classList.toggle('category_dark_mode');
-        proj_container[i].style.backgroundColor = "rgba(210,210,210,0.07)";
+//         proj_container[i].style.backgroundColor = "rgba(210,210,210,0.07)";
 
     }
     if (light == true)
