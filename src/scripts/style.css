@@ -199,8 +199,8 @@ hr {
 
 .link:hover {
   cursor: pointer;
-  background-color: initial;
-  border: 1px solid #333333;
+  background-color: #1683cc;
+  /* border: 1px solid #333333;  */
 }
 
 .category {
