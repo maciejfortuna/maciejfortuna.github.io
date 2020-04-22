@@ -132,7 +132,7 @@ hr {
           box-sizing: border-box;
   overflow: hidden;
   font-family: "Lato", sans-serif;
-  background-color: rgba(100, 100, 100, 0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   margin-bottom: 4px;
   height: auto;
   text-align: left;
@@ -156,6 +156,10 @@ hr {
 
 .project_container_dark:hover .title {
   color: #cc8c16;
+}
+.project_container_dark
+{
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .thumbnail {
