@@ -1,107 +1,138 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Maciej Fortuna</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="src/scripts/style.css" media="screen" />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
-    </head>
-    <script src="src/scripts/script.js"></script> 
-    <body>
-        <div id="container">
-            <h1 id="title">MACIEJ FORTUNA</h1>
+<html id="root">
 
-            <img id = "color_mode" src="src/icons/moon.png" = onclick="switch_color()" />
+<head>
+    <title>Maciej Fortuna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="src/scripts/style.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
 
-            <h2 id="sub_title">Personal Portfolio</h2>
-            <hr>
-            <div style="text-align: center;">
-            <a id="github" target="_blank" href="https://github.com/maciejfortuna?tab=repositories"><img id="git_img" src="src/icons/github.png" /></a>
-            </div>
-            <hr>
-            <h3 class="chapter">RECENT/FEATURED</h3>
-            <hr>
-            <div class="project_container">
-                <div class="thumbnail">
-                    <div class="img"><a href="src/imgs/thumbnail_negativespace.gif" target="_blank"><img src="src/imgs/thumbnail_negativespace.gif"></a></div>
-                </div>
-                <div class='text'>
-                    <p class="category">Personal</p>
-                    <h5 class="title">Negative Space</h5>
-                    <a class="link" target='_blank' href= "https://play.google.com/store/apps/details?id=com.Mastercraft.NegativeSpacePuzzle">LINK</a>
-                    <p class="description">Physics & color based mobile game I have developed in 2-person group using C#, Unity and Illustrator. </p>
-<!--                     <img class="icon" src="../imgs/icon_unity.png"/>
-                    <img class="icon" src="icon_cs.png"/>
-                    <img class="icon" src="icon_ai.png"/> -->
-                    <!-- <img class="icon" src="icon_android.png"/> -->
-                    <!-- <p class="date">2019</p> -->
-                </div>
-            </div>
-            <hr>
-            <div class="project_container" id="starred">
-                <div class="thumbnail">
-                    <div class="img"><a href="src/imgs/pkm_gui.PNG" target="_blank"><img src="src/imgs/pkm_gui.PNG"></a></div>
-                </div>
-                <div class='text'>
-                    <p class="category">University</p>
-                    <h5 class="title"> PKM train tracker - in progress</h5>
-                    <a class="link" target='_blank' href= "https://www.youtube.com/watch?v=hRBYmjXEyCY">LINK to the most recent prototype</a>
-                    <p class="description">8-person university group project. The goal is to track trains on railway model using 2 IP connected PTZ cameras and move them accordingly. My role is/was to create an User Interface with Backend. Write connection between cameras and computer. Implement algorithm that translates postion of bounding box received from the tracker to a movement of cameras. Fast development of 3D environment with model of railway and working virtual cameras in order to work on project from home. </p>
-<!--                     
-                    <img class="icon" src="icon_python.png"/>
-                    <img class="icon" src="icon_qt.png"/>
-                    <img class="icon" src="icon_unity.png"/> -->
-                        <!-- <p class="date">2019</p> -->
-                </div>
-            </div>
-            <hr>
-            <div class="project_container">
-                <div class="thumbnail">
-                    <div class="img"><a href="src/imgs/cuda_snake.gif" target="_blank"><img src="src/imgs/cuda_snake.gif"></a></div>
-                </div>
-                <div class='text'>
-                    <p class="category">University</p>
-                    <h5 class="title">CUDA/GPU computing</h5>
-                    <a class="link" target='_blank' href= "https://github.com/maciejfortuna/CUDA-GPU-computing">LINK</a>
-                    <p class="description">Implementation of basic genetic-like algorithm to find best weights of neural network that plays snake. Written in CUDA/C++ parallel computing</p>
-    
-<!--                     <img class="icon" src="icon_cpp.png"/>
-                    <img class="icon" src="icon_cuda.png"/> -->
-                        <!-- <p class="date">2019</p> -->
-                </div>
-            </div>
-            <hr>
-            <h3 class="chapter">OLDER</h3>
-            <hr>
-            <div class="project_container">
-                <div class="thumbnail">
-                    <div class="img"><a href="src/imgs/thumbnail_revolution.gif" target="_blank"><img src="src/imgs/thumbnail_revolution.gif"></a></div>
-                </div>
-                <div class='text'>
-                    <p class="category">Personal</p>
-                    <h5 class="title">Revolution</h5>
-                    <a class="link" target='_blank' href= "https://play.google.com/store/apps/details?id=com.FortunaStudio.Revolution">LINK</a>
-                    <p class="description">Mobile Game</p>
-                    <!-- <p class="date">2019</p> -->
-                </div>
-            </div>
-            <hr>
-            <div class="project_container">
-                <div class="thumbnail">
-                    <div class="img"><a href="src/imgs/thumbnail_skyisthelimit.gif" target="_blank"><img src="src/imgs/thumbnail_skyisthelimit.gif"></a></div>
-                </div>
-                <div class='text'>
-                    <p class="category">Personal</p>
-                    <h5 class="title">Sky Is The Limit</h5>
-                    <a class="link" target='_blank' href= "https://play.google.com/store/apps/details?id=com.FortunaStudio.SkyIsTheLimitFree">LINK</a>
-                    <p class="description">Mobile Game</p>
-                    <!-- <p class="date">2019</p> -->
-                </div>
-            </div>
+<body onresize="resized()">
+    <canvas id="canvas"></canvas>
 
+    <div id='content'>
 
+        <div id="titles">
+            <div id="buttons">
+                <button onclick="change(-1)">&larr;</button>
+                <p id="effect_index"> 2/7 </p>
+
+                <button onclick="change(1)">&rarr;</button>
+                <button onclick="on_off()" id='cancel_effect'>x</button>
+                <button class="tooltip">?
+                    <span class="tooltiptext">Vector Field created by me in vanilla JS</span>
+                </button>
+            </div>
+            <h1>Maciej Fortuna</h1>
+            <h2>Personal Portfolio</h2>
+            <h3>3-rd year Automatics,Cybernetics & Robotics student</h3>
+            <a id="github" target="_blank" href="https://github.com/maciejfortuna?tab=repositories"><img id="git_img"
+                    src="src/imgs/github.png" /></a>
+
+            <img id="down_icon" src="src/imgs/arrow-down.png" />
         </div>
-        <footer>Maciej Fortuna 2020</footer>
-    </body>
+
+
+    </div>
+
+    <div id="projects">
+        <hr>
+
+        <h3 class="chapter">Featured/Recent</h3>
+        <hr>
+        <div class="project_container">
+            <div class="thumbnail">
+                <div class="img"><a href="src/imgs/thumbnail_negativespace.gif" target="_blank"><img
+                            src="src/imgs/thumbnail_negativespace.gif"></a></div>
+            </div>
+            <div class='text'>
+                <p class="category">Personal</p>
+                <h5 class="title">Negative Space</h5>
+                <a class="link" target='_blank'
+                    href="https://play.google.com/store/apps/details?id=com.Mastercraft.NegativeSpacePuzzle">LINK</a>
+                <p class="description">Physics & color based mobile game I have developed in 2-person group using C#,
+                    Unity and Illustrator. </p>
+
+            </div>
+        </div>
+        <hr>
+        <div class="project_container" id="starred">
+            <div class="thumbnail">
+                <div class="img"><a href="src/imgs/pkm_gui.PNG" target="_blank"><img src="src/imgs/pkm_gui.PNG"></a>
+                </div>
+            </div>
+            <div class='text'>
+                <p class="category">University</p>
+                <h5 class="title"> PKM train tracker - in progress</h5>
+                <a class="link" target='_blank' href="https://www.youtube.com/watch?v=hRBYmjXEyCY">LINK to the most
+                    recent prototype</a>
+                <p class="description">8-person university group project. The goal is to track trains on railway model
+                    using 2 IP connected PTZ cameras and move them accordingly. My role is/was to create an User
+                    Interface with Backend. Write connection between cameras and computer. Implement algorithm that
+                    translates postion of bounding box received from the tracker to a movement of cameras. Fast
+                    development of 3D environment with model of railway and working virtual cameras in order to work on
+                    project from home. </p>
+            </div>
+        </div>
+        <hr>
+        <div class="project_container">
+            <div class="thumbnail">
+                <div class="img"><a href="src/imgs/cuda_snake.gif" target="_blank"><img
+                            src="src/imgs/cuda_snake.gif"></a></div>
+            </div>
+            <div class='text'>
+                <p class="category">University</p>
+                <h5 class="title">CUDA/GPU computing</h5>
+                <a class="link" target='_blank' href="https://github.com/maciejfortuna/CUDA-GPU-computing">LINK</a>
+                <p class="description">Implementation of basic genetic-like algorithm to find best weights of neural
+                    network that plays snake. Written in CUDA/C++ parallel computing</p>
+
+
+            </div>
+        </div>
+        <hr>
+        <h3 class="chapter">OLDER</h3>
+        <hr>
+        <div class="project_container">
+            <div class="thumbnail">
+                <div class="img"><a href="src/imgs/thumbnail_revolution.gif" target="_blank"><img
+                            src="src/imgs/thumbnail_revolution.gif"></a></div>
+            </div>
+            <div class='text'>
+                <p class="category">Personal</p>
+                <h5 class="title">Revolution</h5>
+                <a class="link" target='_blank'
+                    href="https://play.google.com/store/apps/details?id=com.FortunaStudio.Revolution">LINK</a>
+                <p class="description">Mobile Game</p>
+                <!-- <p class="date">2019</p> -->
+            </div>
+        </div>
+        <hr>
+        <div class="project_container">
+            <div class="thumbnail">
+                <div class="img"><a href="src/imgs/thumbnail_skyisthelimit.gif" target="_blank"><img
+                            src="src/imgs/thumbnail_skyisthelimit.gif"></a></div>
+            </div>
+            <div class='text'>
+                <p class="category">Personal</p>
+                <h5 class="title">Sky Is The Limit</h5>
+                <a class="link" target='_blank'
+                    href="https://play.google.com/store/apps/details?id=com.FortunaStudio.SkyIsTheLimitFree">LINK</a>
+                <p class="description">Mobile Game</p>
+                <!-- <p class="date">2019</p> -->
+            </div>
+        </div>
+
+
+    </div>
+    <footer>Maciej Fortuna 2020</footer>
+
+</body>
+<script src='src/scripts/perlin.js'></script>
+<script src="src/scripts/script.js"></script>
+
 </html>
