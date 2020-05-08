@@ -26,7 +26,7 @@ if(canvas.getContext)
 
     // x,y,xs,ys,dir_x,dir_y
     var vectors = []
-    effect_index = 1;
+    effect_index = 0;
 
     for(var i = 0; i<max_particles;i++)
     {

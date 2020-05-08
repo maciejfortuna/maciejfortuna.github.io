@@ -48,9 +48,11 @@ html {
   }
   
   h1 {
+    /* font-size:7vw; */
     color: #fff;
     margin-bottom: 0;
     margin-top: 0;
+    margin:0;
   }
   h2{
       margin:0;
@@ -334,3 +336,44 @@ html {
     padding: 10px;
   }
   
+  
+  
+  @media only screen and (max-width: 750px) {
+    .thumbnail {
+      padding: initial;
+      margin: initial;
+      border: initial;
+      width: 100%;
+    }
+    .project_container {
+      padding: 10px;
+    }
+    .img {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    .img img {
+      width: 100%;
+      -o-object-fit: cover;
+         object-fit: cover;
+    }
+    .text {
+      width: 100%;
+    }
+    hr {
+      border-top-width: 1px;
+    }
+    h1,h2,h3
+    {
+      line-height: 1;
+    }
+    h2
+    {
+      font-size:30px;
+    }
+    h3
+    {
+      font-size: 22px;
+    }
+  }
