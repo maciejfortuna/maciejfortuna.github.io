@@ -14,10 +14,15 @@ html {
     box-sizing: border-box;
     background-color: #2d303a;
     background-color: #1e1e1e;
+    background-color: #1e1e1e;
+    /* background-color: #181818; */
+    /* background-color: white; */
     /* background-color: gray; */
     /* background-color: black; */
     font-size: 36px;
     color: #fff;
+    /* color: #1e1e1e; */
+
   }
   #canvas
   {
@@ -31,7 +36,9 @@ html {
   {    
 
     /* background: radial-gradient(transparent 0%, #252830); */
-    background: radial-gradient(transparent 0%, #1e1e1e);
+    /* background: radial-gradient(transparent 0%, #1e1e1e); */
+    /* background: radial-gradient(transparent 0%, #181818); */
+    /* background: radial-gradient(transparent 0%, #a3a3a3); */
     /* box-shadow: inset 0px 0px 100px 80px black; */
     width:100%;
     height:100%;
@@ -49,7 +56,6 @@ html {
   
   h1 {
     /* font-size:7vw; */
-    color: #fff;
     margin-bottom: 0;
     margin-top: 0;
     margin:0;
@@ -63,12 +69,10 @@ html {
     font-size: 28px;
     font-weight: 200;
     opacity: .5;
-    color: #fff;
     margin:0;
   }
   .chapter
   {
-    color:white;
     opacity: 1;
     font-size:30px;
 }
@@ -78,6 +82,9 @@ html {
     background-color: rgba(0,0,0,0);
     color:white;
     border: 1px solid white;
+    /* color:black; */
+    /* border: 1px solid black; */
+
     display: inline;
     margin:0;
   }
