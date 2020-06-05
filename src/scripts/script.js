@@ -7,7 +7,7 @@ canvas.height = window.innerHeight;
 let w = canvas.width
 let h = canvas.height
 let effects_count = 6;
-let effect_index = 4;
+let effect_index = 0;
 let eff = true;
 let scrollPercent = 0;
 var ctx2,ctx;
@@ -15,13 +15,13 @@ var ctx2,ctx;
 // const bg_color = '#2d303a';
 const bg_color = '#1e1e1e';
 
-const old_poses_count = 12;
+const old_poses_count = 30;
 
 if (canvas.getContext) {
     ctx2 = canvas2.getContext("2d");
     ctx = canvas.getContext("2d");
     let gravity = 0.4;
-    let max_particles = 800
+    let max_particles = 400;
     noise.seed(Math.random());
     var vectors = [];
     var old_poses = []
@@ -62,7 +62,7 @@ if (canvas.getContext) {
                 case 0:
                     let noise_y = (vectors[i][1] / h) * 255
                     let noise_x = (vectors[i][0] / w) * 255
-                    let value = noise.perlin2(noise_x, noise_y)
+                    let value = noise.perlin2(noise_x, noise_y) * 0.2 
                     vectors[i][2] += value * clamp(1 - 30 * scrollPercent, 0, 1)
                     vectors[i][0] += vectors[i][2]
                     vectors[i][3] += value * gravity * clamp(1 - 30 * scrollPercent, 0, 1)
@@ -120,9 +120,9 @@ if (canvas.getContext) {
                     y = map((vectors[i][1] / h), 0, 1, -2.14, 2.14)
                     value_x = y
                     value_y = y * y
-                    vectors[i][2] = value_x * 10
+                    vectors[i][2] = value_x * 1
                     vectors[i][0] += vectors[i][2]
-                    vectors[i][3] = value_y * 10
+                    vectors[i][3] = value_y * 1
                     vectors[i][1] += vectors[i][3]
                     if (vectors[i][0] > w || vectors[i][0] < 0 || vectors[i][1] > h || Math.abs(y) < 0.01) {
                         x = Math.random() * w
@@ -200,11 +200,11 @@ if (canvas.getContext) {
     let clear_count = 0
     function draw() {
 
-        if(global_tick < 5)
-        {
-            ctx.fillStyle = "rgb(200,200,200)";
-            ctx.fillRect(0,0,w,h)
-        }
+        // if(global_tick < 5)
+        // {
+        //     ctx.fillStyle = "rgb(200,200,200)";
+        //     ctx.fillRect(0,0,w,h)
+        // }
     
         // ctx2.fillStyle = bg_color;   
         // ctx2.fillRect(0, 0, w,h);
@@ -223,9 +223,9 @@ if (canvas.getContext) {
         for (let i = 0; i < vectors.length; i++) {
             z = h / 2
             let r = Math.sqrt(vectors[i][2] ** 2 + vectors[i][3] ** 2)
-            // let alpha = (-(vectors[i][1] - z) * (vectors[i][1] - z) + z ** 2) / (z ** 2) * r
+            let alpha = (-(vectors[i][1] - z) * (vectors[i][1] - z) + z ** 2) / (z ** 2) * r
             // alpha=255;
-            alpha = 1
+            // alpha = 1
             // ctx.strokeStyle = "rgba(255,251,230," + alpha + ")";
 
             // if(r<0.3)
@@ -235,12 +235,14 @@ if (canvas.getContext) {
             // let alpha = 0.5;
 
             ctx.beginPath();
-            // ctx.arc(vectors[i][0], vectors[i][1], 2, 0, 2 * Math.PI);
-            // ctx.strokeStyle = "rgba(200,200,200," + alpha + ")";
-            // ctx.strokeStyle = "rgba(30,30,30," + alpha + ")";
+            ctx.arc(vectors[i][0], vectors[i][1], 2, 0, 2 * Math.PI);
+            ctx.strokeStyle = "rgba(200,200,200," + alpha + ")";
+            // ctx.strokeStyle = "rgba(109, 181, 214," + alpha + ")";
+            // ctx.strokeStyle = "rgba(197, 143, 255," + alpha + ")";
             // ctx.strokeStyle = `rgba(200,200,200,${alpha}`;
             // ctx.lineWidth = 1;
             // ctx.moveTo(old_poses[i][0][0], old_poses[i][0][1])
+
             for (let j = 0; j < old_poses_count; j++) {
                 ctx.lineTo(old_poses[i][j][0], old_poses[i][j][1])
             }
@@ -268,15 +270,15 @@ if (canvas.getContext) {
 }
 var clear = function()
 {
-    ctx2.clearRect(0,0,w, h)
+    // ctx2.clearRect(0,0,w, h)
     // this should be needed at init and when canvas is resized but for demo I leave it here
-    ctx2.globalAlpha = '.9';
+    // ctx2.globalAlpha = '.9';
     // draw ou visible canvas, a bit less opaque
-    ctx2.drawImage(canvas, 0,0)
+    // ctx2.drawImage(canvas, 0,0)
     // clear the visible canvas
     ctx.clearRect(0,0,w, h)
     // draw back our saved less-opaque image
-    ctx.drawImage(canvas2, 0,0)
+    // ctx.drawImage(canvas2, 0,0)
 }
 var loop = function() {
     requestAnimationFrame(loop, canvas);
