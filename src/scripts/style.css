@@ -1,11 +1,9 @@
-
 html {
     /* height: 100%; */
     width: 100%;
-  }
-  
-  body {
+}
 
+body {
     font-family: 'Teko';
     /* height: 100%; */
     padding: 0;
@@ -22,40 +20,36 @@ html {
     font-size: 36px;
     color: #fff;
     /*! color: #1e1e1e; */
+}
 
-  }
-  #canvas
-  {
-      position: absolute;
-      /* z-index: -1; */
-      width: 100%;
-      height: 100%;
-      /* box-shadow: 0px 0px 20px 0px black; */
-  }
+#canvas {
+    position: absolute;
+    /* z-index: -1; */
+    width: 100%;
+    height: 100%;
+    /* box-shadow: 0px 0px 20px 0px black; */
+}
 
-  #content
-  {    
-
+#content {
     /* background: radial-gradient(transparent 0%, #252830); */
     /* background: radial-gradient(transparent 0%, #1e1e1e); */
     /* background: radial-gradient(transparent 0%, #181818); */
     /* background: radial-gradient(transparent 0%, #a3a3a3); */
     /* box-shadow: inset 0px 0px 100px 80px black; */
-    width:100%;
-    height:100vh;
+    width: 100%;
+    height: 100vh;
     /* z-index: 1; */
     box-sizing: border-box;
     box-shadow: 0px 0px 20px 10px rgb(48, 48, 48);
     position: relative;
-
     border-bottom: 3px dashed #8d8d8d5b;
-  }
-  #titles
-  {
+}
+
+#titles {
     position: absolute;
     top: 50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     /* background-color: #000000d0; */
     /* box-sizing: border-box; */
@@ -63,50 +57,49 @@ html {
     /* box-shadow: 0px 0px 100px 10px #1a1a1a; */
     /* border-radius: 20px; */
     /* width: 100%;  */
+}
 
-  }
-  
-  h1 {
+h1 {
     margin-bottom: 0;
     margin-top: 0;
-    margin:0;
-  }
-  h2{
-      margin:0;
-      font-size: 35px;
-  }
-  
-  h3 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 35px;
+}
+
+h3 {
     font-size: 32px;
     font-weight: 200;
     opacity: .8;
-    margin:0;
-  }
-  .chapter
-  {
-    opacity: 1;
-    font-size:30px;
+    margin: 0;
 }
 
-  button{
-    
-    background-color: rgba(0,0,0,0);
-    color:white;
+.chapter {
+    opacity: 1;
+    font-size: 30px;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
     border: 1px solid white;
     /* color:black; */
     /* border: 1px solid black; */
-
     display: inline;
-    margin:0;
-  }
-  #github:hover img {
+    margin: 0;
+}
+
+#github:hover img {
     width: 46px;
     opacity: 1;
     margin-bottom: 0px;
     margin-top: 0px;
-  }
-  
-  #github img {
+}
+
+#github img {
     opacity: 0.7;
     -webkit-transition: 0.3s;
     transition: 0.3s;
@@ -114,54 +107,50 @@ html {
     margin-bottom: 3px;
     margin-top: 3px;
     filter: invert(1);
-  }
-  #github
-  {
-    display: inline-block;
-  }
+}
 
-  #effect_index{
+#github {
+    display: inline-block;
+}
+
+#effect_index {
     display: inline;
     font-size: 18px;
     opacity: 0.6;
     margin: 0 10px 0 10px;
-  } 
+}
 
-  #down_icon
-  {
+#down_icon {
     filter: invert(1);
     width: 30px;
     padding: 10px;
-    margin:20px;
+    margin: 20px;
     opacity: 0;
     /* box-sizing: border-box ; */
     border: 3px solid black;
     border-radius: 100%;
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
     animation: mymove 3s ease-out;
     position: relative;
     animation-iteration-count: infinite;
+}
 
-  }
-
-  @keyframes mymove {
+@keyframes mymove {
     0% {
-      top: 0px;
-      opacity: 0;
+        top: 0px;
+        opacity: 0;
     }
-    50%
-    {
-      opacity: 1;
+    50% {
+        opacity: 1;
     }
     100% {
-      top: 60px; opacity: 0;
+        top: 60px;
+        opacity: 0;
     }
+}
 
-  }
-
-  #projects
-  {
+#projects {
     /* background-image: url("/src/imgs/bg_white.png"); */
     /* width: 50%; */
     /* margin:0 auto; */
@@ -170,33 +159,32 @@ html {
     background-color: #fff;
     color: black;
     /* z-index: -4; */
-  }
-  .project
-  {
+}
+
+.project {
     width: 50%;
     border: 1px solid white;
-
     /* background-color: blue; */
     padding: 10px;
     box-sizing: border-box;
     float: left;
-  }
-  .project h4{
-    margin:0;
-    padding:0;
-  }
+}
 
+.project h4 {
+    margin: 0;
+    padding: 0;
+}
 
-  .project_container {
+.project_container {
     font-size: initial;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     overflow: hidden;
     font-family: "Lato", sans-serif;
+    /* overflow: auto; */
     /* background-color: rgba(0, 0, 0, 0.05); */
     /* background-color: rgba(255, 255, 255, 0.05); */
     /*! background-color: #3f3f3f2c; */
-    
     padding: 20px;
     margin-bottom: 60px;
     height: auto;
@@ -204,133 +192,148 @@ html {
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.07), 0 4px 8px rgba(0,0,0,0.07), 0 8px 16px rgba(0,0,0,0.07), 0 16px 32px rgba(0,0,0,0.07), 0 32px 64px rgba(0,0,0,0.07);
+    display: flex;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
 
-  }
-  
-  #starred {
+#starred {
     background-color: inital;
-  }
-  
-  .project_container:hover .img img {
+}
+
+.project_container:hover .img img {
     -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  
-  .project_container:hover .title {
+    transform: scale(1.1);
+}
+
+.project_container:hover .title {
     color: #f7aa1c;
-  }
-  
-  .project_container_dark:hover .title {
+}
+
+.project_container_dark:hover .title {
     color: #f7aa1c;
-  }
-  .project_container_dark
-  {
+}
+
+.project_container_dark {
     background-color: rgba(255, 255, 255, 0.05);
-  }
-  
-  .thumbnail {
+}
+
+.thumbnail {
     width: auto;
-    height: 100%;
-    float: left;
-    clear: both;
+    height: auto;
+    /* float: left; */
+    display: flex;
+    /* clear: both; */
     padding-right: 5px;
     margin-right: 10px;
     border-right: 1px solid rgba(0, 0, 0, 0.432);
-  }
-  
-  .thumbnail:after {
+    /* display: inline-block; */
+}
+
+
+/* .thumbnail:after {
     content: "";
     display: table;
     clear: both;
-  }
-  
-  .img {
+} */
+
+.img {
     width: 400px;
-    height: 100%;
-    float: left;
-    clear: both;
+    height: auto;
+    /* float: left; */
+    display: flex;
+    align-items: center;
+    /* background-color: red; */
+    /* clear: both; */
     overflow: hidden;
-  }
-  
-  .img img {
-    width: 100%;
+}
+
+.img img {
+    width: 400px;
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
-  }
-  
-  .text {
-    width: 100%;
-  }
-  
-  .title {
+}
+
+.text {
+    /* width: 100%; */
+    line-height: 1.3;
+    /* clear: left; */
+    /* display: inline-block; */
+    /* float: right; */
+}
+
+.title {
     font-family: "Montserrat";
     font-weight: 600;
     font-size: 25px;
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
-  }
-  
-  .title, .description, .category, .link {
+}
+
+.title,
+.description,
+.category,
+.link {
     padding: 0;
     margin: 5px 0px 5px 0px;
-  }
-  
-  .link {
+}
+
+.link {
     margin-right: 0px;
     color: inherit;
-    font-weight: 600;
+    font-weight: 700;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-  
-  .link:hover {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.link:hover {
     cursor: pointer;
     background-color: initial;
-    border: 1px solid #333333;
-  }
-  
-  .category {
+    border-bottom: 2px solid black;
+}
+
+.category {
     font-weight: 400;
     font-size: 16px;
     color: #f7aa1c;
     -webkit-transition: 0.3s;
     transition: 0.3s;
     visibility: hidden;
-  }
-  
-  .category_dark_mode {
+}
+
+.category_dark_mode {
     font-weight: 400;
     font-size: 16px;
     color: #f7aa1c;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-  }
-  
-  .description {
+}
+
+.description {
     font-weight: 400;
     font-size: 17px;
     font-family: "Lato", sans-serif;
-  }
-  
-  .icon {
+}
+
+.icon {
     width: 40px;
     height: auto;
     margin: 10px 0 10px 0;
-  }
-  
-  .date {
+}
+
+.date {
     font-weight: 400px;
     float: right;
     font-size: 13px;
     color: rgba(0, 0, 0, 0.3);
-  }
-
-.tooltip:hover{
-  background-color: white;
-  color:black;
 }
-  .tooltip .tooltiptext {
+
+.tooltip:hover {
+    background-color: white;
+    color: black;
+}
+
+.tooltip .tooltiptext {
     visibility: hidden;
     width: auto;
     background-color: white;
@@ -342,63 +345,78 @@ html {
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-  }
-  
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
+}
 
-  footer {
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+footer {
     background-color: black;
     font-family: initial;
     font-size: 20px;
     text-align: center;
     padding: 10px;
-  }
-  
-  
-  
-  @media only screen and (max-width: 750px) {
+}
+
+@media only screen and (max-width: 850px) {
+    h1,
+    h2,
+    h3 {
+        line-height: 1;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    h3 {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
     .thumbnail {
-      padding: initial;
-      margin: initial;
-      border: initial;
-      width: 100%;
+        padding: initial;
+        margin: initial;
+        border: initial;
+        width: 100%;
     }
     .project_container {
-      /* padding: 10px; */
-      /* margin: 0px; */
+        display: block;
+        /* padding: 10px; */
+        /* margin: 0px; */
     }
-    #projects
-    {
-      padding:10px;
+    .thumbnail {
+        display: block;
+    }
+    #projects {
+        padding: 10px;
     }
     .img {
-      width: 100%;
-      height: 100%;
-      text-align: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
     }
     .img img {
-      width: 100%;
-      -o-object-fit: cover;
-         object-fit: cover;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
     }
     .text {
-      width: 100%;
+        width: 100%;
     }
     hr {
-      border-top-width: 1px;
+        border-top-width: 1px;
     }
-    h1,h2,h3
-    {
-      line-height: 1;
+    h1,
+    h2,
+    h3 {
+        line-height: 1;
     }
-    h2
-    {
-      font-size:30px;
+    h2 {
+        font-size: 30px;
     }
-    h3
-    {
-      font-size: 22px;
+    h3 {
+        font-size: 22px;
     }
-  }
+}
