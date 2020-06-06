@@ -7,15 +7,18 @@ canvas.height = window.innerHeight;
 let w = canvas.width
 let h = canvas.height
 let effects_count = 6;
-let effect_index = 0;
+let effect_index = 4;
 let eff = true;
 let scrollPercent = 0;
-var ctx2,ctx;
+var global_tick = 0
+
+var ctx2, ctx;
 
 // const bg_color = '#2d303a';
 const bg_color = '#1e1e1e';
 
 const old_poses_count = 30;
+const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
 
 if (canvas.getContext) {
     ctx2 = canvas2.getContext("2d");
@@ -25,23 +28,52 @@ if (canvas.getContext) {
     noise.seed(Math.random());
     var vectors = [];
     var old_poses = []
+    let area = clamp(w, 375, 1920) * clamp(h, 667, 1080);
+    max_particles = Math.round(map(area, 250125, 2073600, 100, 400));
+    console.log(max_particles);
 
-    for (let i = 0; i < max_particles; i++) {
-        let x = Math.random() * w;
-        let y = Math.random() * h;
-        // [0,1] - current position, [2,3] - speed, [4,5],[6,7],[8,9] - old positions
-        // vectors.push([x, y, 0, 0, x, y, x, y, x, y]);
-        vectors.push([x, y, 0, 0]);
-        var pose = []
-        for (let i = 0; i < old_poses_count; i++) {
-            pose.push([x, y])
-        }
-        old_poses.push(pose)
-        pose = []
-    }
+    // for (let i = 0; i < max_particles; i++) {
+    //     let x = Math.random() * w;
+    //     let y = Math.random() * h;
+    //     // [0,1] - current position, [2,3] - speed, [4,5],[6,7],[8,9] - old positions
+    //     // vectors.push([x, y, 0, 0, x, y, x, y, x, y]);
+    //     vectors.push([x, y, 0, 0]);
+    //     var pose = []
+    //     for (let i = 0; i < old_poses_count; i++) {
+    //         pose.push([x, y])
+    //     }
+    //     old_poses.push(pose)
+    //     pose = []
+    // }
 
 
     function update_vectors() {
+
+        global_tick += 1;
+
+        if (vectors.length < max_particles) {
+            if (global_tick % 2 == 0) {
+                let a = Math.random() * w;
+                let b = Math.random() * h;
+                // [0,1] - current position, [2,3] - speed, [4,5],[6,7],[8,9] - old positions
+                // vectors.push([x, y, 0, 0, x, y, x, y, x, y]);
+                vectors.push([a, b, 0, 0]);
+                var pose = []
+                for (let i = 0; i < old_poses_count; i++) {
+                    pose.push([a, b])
+                }
+                old_poses.push(pose)
+                pose = []
+            }
+        }
+
+        console.log(vectors.length + "/" + max_particles);
+
+
+
+
+
+
         for (let i = 0; i < vectors.length; i++) {
             // vectors[i][9] = vectors[i][7]
             // vectors[i][8] = vectors[i][6]
@@ -62,7 +94,7 @@ if (canvas.getContext) {
                 case 0:
                     let noise_y = (vectors[i][1] / h) * 255
                     let noise_x = (vectors[i][0] / w) * 255
-                    let value = noise.perlin2(noise_x, noise_y) * 0.2 
+                    let value = noise.perlin2(noise_x, noise_y) * 0.2
                     vectors[i][2] += value * clamp(1 - 30 * scrollPercent, 0, 1)
                     vectors[i][0] += vectors[i][2]
                     vectors[i][3] += value * gravity * clamp(1 - 30 * scrollPercent, 0, 1)
@@ -195,9 +227,9 @@ if (canvas.getContext) {
             }
         }
     }
-    var global_tick = 0
     ctx.lineWidth = 1;
     let clear_count = 0
+
     function draw() {
 
         // if(global_tick < 5)
@@ -205,7 +237,7 @@ if (canvas.getContext) {
         //     ctx.fillStyle = "rgb(200,200,200)";
         //     ctx.fillRect(0,0,w,h)
         // }
-    
+
         // ctx2.fillStyle = bg_color;   
         // ctx2.fillRect(0, 0, w,h);
         // ctx2.clearRect(0,0,w,h);
@@ -224,9 +256,9 @@ if (canvas.getContext) {
             z = h / 2
             let r = Math.sqrt(vectors[i][2] ** 2 + vectors[i][3] ** 2)
             let alpha = (-(vectors[i][1] - z) * (vectors[i][1] - z) + z ** 2) / (z ** 2) * r
-            // alpha=255;
-            // alpha = 1
-            // ctx.strokeStyle = "rgba(255,251,230," + alpha + ")";
+                // alpha=255;
+                // alpha = 1
+                // ctx.strokeStyle = "rgba(255,251,230," + alpha + ")";
 
             // if(r<0.3)
             // {
@@ -251,9 +283,8 @@ if (canvas.getContext) {
             // ctx.lineTo(vectors[i][4], vectors[i][5]);
             // ctx.lineTo(vectors[i][6], vectors[i][7]);
             ctx.stroke();
-            global_tick += 1;
         }
-   
+
 
         // let oldArray = ctx.getImageData(0,0,canvas.width,canvas.height);
         // //count through only the alpha pixels
@@ -268,17 +299,16 @@ if (canvas.getContext) {
 
     // setInterval(loop, 30);
 }
-var clear = function()
-{
+var clear = function() {
     // ctx2.clearRect(0,0,w, h)
     // this should be needed at init and when canvas is resized but for demo I leave it here
     // ctx2.globalAlpha = '.9';
     // draw ou visible canvas, a bit less opaque
     // ctx2.drawImage(canvas, 0,0)
     // clear the visible canvas
-    ctx.clearRect(0,0,w, h)
-    // draw back our saved less-opaque image
-    // ctx.drawImage(canvas2, 0,0)
+    ctx.clearRect(0, 0, w, h)
+        // draw back our saved less-opaque image
+        // ctx.drawImage(canvas2, 0,0)
 }
 var loop = function() {
     requestAnimationFrame(loop, canvas);
@@ -329,13 +359,12 @@ function distance(ax, ay, bx, by) {
 }
 
 function on_off() {
-    global_tick =0;
+    global_tick = 0;
     eff = !eff;
     if (eff == false) {
         document.getElementById('cancel_effect').innerHTML = "o"
         ctx.clearRect(0, 0, w, h)
-    }
-    else {
+    } else {
         document.getElementById('cancel_effect').innerHTML = "x"
     }
 }
@@ -344,5 +373,4 @@ function clamp(num, min, max) {
     return num <= min ? min : num >= max ? max : num;
 }
 
-const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
 loop();
