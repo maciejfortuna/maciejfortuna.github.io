@@ -11,17 +11,11 @@ let effect_index = 4;
 let eff = true;
 let scrollPercent = 0;
 var global_tick = 0
-
-var ctx2, ctx;
-
-// const bg_color = '#2d303a';
+var ctx;
 const bg_color = '#1e1e1e';
-
 const old_poses_count = 30;
 const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
-
 if (canvas.getContext) {
-    ctx2 = canvas2.getContext("2d");
     ctx = canvas.getContext("2d");
     let gravity = 0.4;
     let max_particles = 400;
@@ -30,6 +24,8 @@ if (canvas.getContext) {
     var old_poses = []
     let area = clamp(w, 375, 1920) * clamp(h, 667, 1080);
     max_particles = Math.round(map(area, 250125, 2073600, 100, 400));
+
+    document.getElementsByTagName("h1")[0].innerHTML = max_particles.toString();
     console.log(max_particles);
 
     // for (let i = 0; i < max_particles; i++) {
@@ -46,11 +42,9 @@ if (canvas.getContext) {
     //     pose = []
     // }
 
-
     function update_vectors() {
 
         global_tick += 1;
-
         if (vectors.length < max_particles) {
             if (global_tick % 2 == 0) {
                 let a = Math.random() * w;
@@ -66,13 +60,6 @@ if (canvas.getContext) {
                 pose = []
             }
         }
-
-        console.log(vectors.length + "/" + max_particles);
-
-
-
-
-
 
         for (let i = 0; i < vectors.length; i++) {
             // vectors[i][9] = vectors[i][7]
@@ -231,24 +218,6 @@ if (canvas.getContext) {
     let clear_count = 0
 
     function draw() {
-
-        // if(global_tick < 5)
-        // {
-        //     ctx.fillStyle = "rgb(200,200,200)";
-        //     ctx.fillRect(0,0,w,h)
-        // }
-
-        // ctx2.fillStyle = bg_color;   
-        // ctx2.fillRect(0, 0, w,h);
-        // ctx2.clearRect(0,0,w,h);
-        // ctx2.globalAlpha = 0.1;
-        // ctx2.drawImage(canvas,0,0);
-        // ctx.clearRect(0,0,w,h);
-        // ctx.drawImage(canvas2,0,0);  
-
-
-        // ctx.clearRect(0, 0, w, h);
-        // clear the clone canvas  
         ctx.strokeStyle = "rgb(200,200,200)"
         ctx.lineWidth = 1;
 
@@ -269,46 +238,20 @@ if (canvas.getContext) {
             ctx.beginPath();
             ctx.arc(vectors[i][0], vectors[i][1], 2, 0, 2 * Math.PI);
             ctx.strokeStyle = "rgba(200,200,200," + alpha + ")";
-            // ctx.strokeStyle = "rgba(109, 181, 214," + alpha + ")";
-            // ctx.strokeStyle = "rgba(197, 143, 255," + alpha + ")";
-            // ctx.strokeStyle = `rgba(200,200,200,${alpha}`;
-            // ctx.lineWidth = 1;
-            // ctx.moveTo(old_poses[i][0][0], old_poses[i][0][1])
-
             for (let j = 0; j < old_poses_count; j++) {
                 ctx.lineTo(old_poses[i][j][0], old_poses[i][j][1])
             }
-            // ctx.lineTo(vectors[i][8], vectors[i][9]);
-            // ctx.moveTo(vectors[i][0], vectors[i][1]);
-            // ctx.lineTo(vectors[i][4], vectors[i][5]);
-            // ctx.lineTo(vectors[i][6], vectors[i][7]);
             ctx.stroke();
         }
 
-
-        // let oldArray = ctx.getImageData(0,0,canvas.width,canvas.height);
-        // //count through only the alpha pixels
-        // for(let d=3;d<oldArray.data.length;d+=4){
-        //     //dim it with some feedback, I'm using .9
-        //     oldArray.data[d] = Math.floor(oldArray.data[d]*.9);
-        // }
-        // ctx.putImageData(oldArray,0,0);
-        // //          // draw vignete
 
     }
 
     // setInterval(loop, 30);
 }
 var clear = function() {
-    // ctx2.clearRect(0,0,w, h)
-    // this should be needed at init and when canvas is resized but for demo I leave it here
-    // ctx2.globalAlpha = '.9';
-    // draw ou visible canvas, a bit less opaque
-    // ctx2.drawImage(canvas, 0,0)
-    // clear the visible canvas
+
     ctx.clearRect(0, 0, w, h)
-        // draw back our saved less-opaque image
-        // ctx.drawImage(canvas2, 0,0)
 }
 var loop = function() {
     requestAnimationFrame(loop, canvas);
@@ -326,8 +269,6 @@ var loop = function() {
 function resized() {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
-    canvas2.width = window.innerWidth
-    canvas2.height = window.innerHeight
     w = canvas.width
     h = canvas.height
 }
