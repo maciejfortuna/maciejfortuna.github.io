@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");
-var canvas2 = canvas.cloneNode()
-canvas2.width = window.innerWidth;
-canvas2.height = window.innerHeight;
+// var canvas2 = canvas.cloneNode()
+// canvas2.width = window.innerWidth;
+// canvas2.height = window.innerHeight;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let w = canvas.width
