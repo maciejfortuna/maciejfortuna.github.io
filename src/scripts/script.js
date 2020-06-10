@@ -6,7 +6,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let w = canvas.width
 let h = canvas.height
-let effects_count = 6;
+let effects_count = 4;
 let effect_index = 4;
 let eff = true;
 let scrollPercent = 0;
@@ -15,7 +15,8 @@ var ctx;
 const bg_color = '#1e1e1e';
 const old_poses_count = 30;
 const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
-if (canvas.getContext) {
+
+if (canvas.getContext && w > 770) {
     ctx = canvas.getContext("2d");
     let gravity = 0.4;
     let max_particles = 400;
@@ -25,7 +26,6 @@ if (canvas.getContext) {
     let area = clamp(w, 375, 1920) * clamp(h, 667, 1080);
     max_particles = Math.round(map(area, 250125, 2073600, 100, 400));
 
-    document.getElementsByTagName("h1")[0].innerHTML = max_particles.toString();
     console.log(max_particles);
 
     // for (let i = 0; i < max_particles; i++) {
@@ -43,7 +43,6 @@ if (canvas.getContext) {
     // }
 
     function update_vectors() {
-
         global_tick += 1;
         if (vectors.length < max_particles) {
             if (global_tick % 2 == 0) {
@@ -247,47 +246,43 @@ if (canvas.getContext) {
 
     }
 
-    // setInterval(loop, 30);
-}
-var clear = function() {
-
-    ctx.clearRect(0, 0, w, h)
-}
-var loop = function() {
-    requestAnimationFrame(loop, canvas);
-    let scrollTop = document.getElementById('root').scrollTop
-    let docHeight = document.getElementById('root').scrollHeight;
-    let winHeight = window.innerHeight;
-    scrollPercent = (scrollTop) / (docHeight - winHeight);
-    if (eff == true) {
-        clear();
-        update_vectors()
-        draw()
+    var clear = function() {
+        ctx.clearRect(0, 0, w, h)
     }
-}
-
-function resized() {
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-    w = canvas.width
-    h = canvas.height
-}
-
-function change_effect(i) {
-    effect_index += i;
-    effect_index = ((effect_index % (effects_count + 1)) + effects_count + 1) % (effects_count + 1);
-    document.getElementById('effect_index').innerHTML = (effect_index) + '/' + (effects_count)
-
-    for (let i = 0; i < vectors.length; i++) {
-        x = Math.random() * w
-        y = Math.random() * h
-        vectors[i] = ([x, y, 0, 0, x, y, x, y, x, y])
-        for (let j = 0; j < old_poses_count; j++) {
-            old_poses[i][j][0] = x
-            old_poses[i][j][1] = y
+    var loop = function() {
+        requestAnimationFrame(loop, canvas);
+        let scrollTop = document.getElementById('root').scrollTop
+        let docHeight = document.getElementById('root').scrollHeight;
+        let winHeight = window.innerHeight;
+        scrollPercent = (scrollTop) / (docHeight - winHeight);
+        if (eff == true) {
+            clear();
+            update_vectors()
+            draw()
         }
     }
+
+
+
+    function change_effect(i) {
+        effect_index += i;
+        effect_index = ((effect_index % (effects_count + 1)) + effects_count + 1) % (effects_count + 1);
+        document.getElementById('effect_index').innerHTML = (effect_index) + '/' + (effects_count)
+
+        for (let i = 0; i < vectors.length; i++) {
+            x = Math.random() * w
+            y = Math.random() * h
+            vectors[i] = ([x, y, 0, 0, x, y, x, y, x, y])
+            for (let j = 0; j < old_poses_count; j++) {
+                old_poses[i][j][0] = x
+                old_poses[i][j][1] = y
+            }
+        }
+    }
+    loop();
+
 }
+
 
 function vector_length(px, py) {
     return Math.sqrt(px ** 2 + py ** 2);
@@ -314,4 +309,9 @@ function clamp(num, min, max) {
     return num <= min ? min : num >= max ? max : num;
 }
 
-loop();
+function resized() {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    w = canvas.width
+    h = canvas.height
+}
