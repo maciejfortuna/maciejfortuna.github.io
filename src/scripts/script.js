@@ -7,7 +7,7 @@ canvas.height = window.innerHeight;
 let w = canvas.width
 let h = canvas.height
 let effects_count = 4;
-let effect_index = 4;
+let effect_index = 0;
 let eff = true;
 let scrollPercent = 0;
 var global_tick = 0
@@ -27,12 +27,12 @@ if (canvas.getContext && w > 770 && isMobile == false) {
     console.log("display");
     ctx = canvas.getContext("2d");
     let gravity = 0.4;
-    let max_particles = 400;
+    let max_particles = 100;
     noise.seed(Math.random());
     var vectors = [];
     var old_poses = []
     let area = clamp(w, 375, 1920) * clamp(h, 667, 1080);
-    max_particles = Math.round(map(area, 250125, 2073600, 100, 400));
+    max_particles = Math.round(map(area, 250125, 2073600, 50, 100));
 
     console.log(max_particles);
 
@@ -69,12 +69,6 @@ if (canvas.getContext && w > 770 && isMobile == false) {
         }
 
         for (let i = 0; i < vectors.length; i++) {
-            // vectors[i][9] = vectors[i][7]
-            // vectors[i][8] = vectors[i][6]
-            // vectors[i][7] = vectors[i][5]
-            // vectors[i][6] = vectors[i][4]
-            // vectors[i][4] = vectors[i][0]
-            // vectors[i][5] = vectors[i][1]
 
             old_poses[i][0][0] = vectors[i][0]
             old_poses[i][0][1] = vectors[i][1]
@@ -89,10 +83,10 @@ if (canvas.getContext && w > 770 && isMobile == false) {
                     let noise_y = (vectors[i][1] / h) * 255
                     let noise_x = (vectors[i][0] / w) * 255
                     let value = noise.perlin2(noise_x, noise_y) * 0.2
-                    vectors[i][2] += value * clamp(1 - 30 * scrollPercent, 0, 1)
-                    vectors[i][0] += vectors[i][2]
-                    vectors[i][3] += value * gravity * clamp(1 - 30 * scrollPercent, 0, 1)
-                    vectors[i][1] += vectors[i][3]
+                    vectors[i][2] += value
+                    vectors[i][0] += vectors[i][2] * 0.7
+                    vectors[i][3] += value * gravity 
+                    vectors[i][1] += vectors[i][3] * 0.7
                     if (vectors[i][0] > w || vectors[i][0] < 0 || vectors[i][1] > h) {
                         x = Math.random() * w
                         y = Math.random() * h
@@ -108,9 +102,9 @@ if (canvas.getContext && w > 770 && isMobile == false) {
                     y = map((vectors[i][1] / h), 0, 1, -2.14, 2.14)
                     value_x = 2 * Math.cos(y) / x
                     value_y = x
-                    vectors[i][2] = value_x * clamp(1 - 2 * scrollPercent, 0, 1)
+                    vectors[i][2] = value_x
                     vectors[i][0] += vectors[i][2]
-                    vectors[i][3] = value_y * clamp(1 - 2 * scrollPercent, 0, 1)
+                    vectors[i][3] = value_y
                     vectors[i][1] += vectors[i][3]
                     if (vectors[i][0] > w || vectors[i][0] < 0 || vectors[i][1] > h) {
                         x = Math.random() * w
@@ -127,9 +121,9 @@ if (canvas.getContext && w > 770 && isMobile == false) {
                     y = map((vectors[i][1] / h), 0, 1, -2.14, 2.14)
                     value_x = 0.1 * y
                     value_y = -0.2 * y
-                    vectors[i][2] = value_x * 10 * clamp(1 - 2 * scrollPercent, 0, 1)
+                    vectors[i][2] = value_x * 10
                     vectors[i][0] += vectors[i][2]
-                    vectors[i][3] = value_y * 10 * clamp(1 - 2 * scrollPercent, 0, 1)
+                    vectors[i][3] = value_y * 10
                     vectors[i][1] += vectors[i][3]
                     if (vectors[i][0] > w || vectors[i][0] < 0 || vectors[i][1] > h || Math.abs(y) < 0.03) {
                         x = Math.random() * w
@@ -204,9 +198,9 @@ if (canvas.getContext && w > 770 && isMobile == false) {
                     y = map((vectors[i][1] / h), 0, 1, -10, 10)
                     value_x = -0.5 * x + 0.5 * y
                     value_y = -0.5 * x - 0.5 * y
-                    vectors[i][2] = value_x * clamp(1 - 2 * scrollPercent, 0, 1)
+                    vectors[i][2] = value_x
                     vectors[i][0] += vectors[i][2]
-                    vectors[i][3] = value_y * clamp(1 - 2 * scrollPercent, 0, 1)
+                    vectors[i][3] = value_y
                     vectors[i][1] += vectors[i][3]
                     if (Math.sqrt(x ** 2 + y ** 2) < 0.1) {
                         x = Math.random() * w
