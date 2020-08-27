@@ -438,10 +438,9 @@ footer {
     }
     #titles
     {
-        margin:0px;
-        padding-left:10px;
-        padding-right:10px;
         width:100%;
+        padding:0px 10px 0px 10px;
+        box-sizing: border-box;
     }
     #content
     {
@@ -459,5 +458,12 @@ footer {
     }
     h3 {
         font-size: 25px;
+    }
+    h4{
+        font-size: 25px;
+    }
+    h5
+    {
+        font-size: 20px;
     }
 }
