@@ -47,9 +47,9 @@ body {
 
 #titles {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     text-align: center;
     /* background-color: #000000d0; */
     /* box-sizing: border-box; */
@@ -73,7 +73,22 @@ h2 {
 h3 {
     font-size: 32px;
     font-weight: 200;
+    opacity: .4;
+    margin: 0;
+}
+
+h4 {
+    font-size: 32px;
+    font-weight: 200;
     opacity: .8;
+    margin: 0;
+}
+
+
+h5 {
+    font-size: 22px;
+    font-weight: 100;
+    opacity: .95;
     margin: 0;
 }
 
@@ -92,21 +107,26 @@ button {
     margin: 0;
 }
 
-#github:hover img {
-    width: 46px;
-    opacity: 1;
-    margin-bottom: 0px;
-    margin-top: 0px;
+#github
+{
+    margin: 20px;
 }
 
 #github img {
     opacity: 0.7;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-    width: 40px;
-    margin-bottom: 3px;
-    margin-top: 3px;
+    width: 50px;
+    margin-bottom: 6px;
+    margin-top: 6px;
     filter: invert(1);
+}
+
+#github:hover img {
+    width: 62px;
+    opacity: 1;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 #github {
